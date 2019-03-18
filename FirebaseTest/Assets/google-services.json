@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1078723748852",
+    "firebase_url": "https://unitytest-a7eaa.firebaseio.com",
+    "project_id": "unitytest-a7eaa",
+    "storage_bucket": "unitytest-a7eaa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1078723748852:android:eab6a74f0d26dddd",
+        "android_client_info": {
+          "package_name": "com.JellySlime.FirebaseTest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1078723748852-f3hj6o5pt9kmh70lbd640ghvjbvvlsln.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApV-VoEwS7at_Lo8IuQERk1BqM56HTb_E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
