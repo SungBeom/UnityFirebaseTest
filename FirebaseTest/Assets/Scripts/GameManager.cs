@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     //        return instance;
     //    }
     //}
+    [HideInInspector]
     public string UDID;
 
     DatabaseReference reference;
@@ -70,6 +71,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         FirebaseApp.DefaultInstance.SetEditorDatabaseUrl("https://unitytest-a7eaa.firebaseio.com/");
+        FirebaseApp.DefaultInstance.SetEditorP12FileName("unitytest-a7eaa-ddb4aaa27e34-P12.p12");
+        FirebaseApp.DefaultInstance.SetEditorServiceAccountEmail("unitytest-a7eaa@appspot.gserviceaccount.com");
+        FirebaseApp.DefaultInstance.SetEditorP12Password("notasecret");
 
         // Get the root reference location of the database.
         reference = FirebaseDatabase.DefaultInstance.RootReference;
