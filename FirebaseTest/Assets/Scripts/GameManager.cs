@@ -121,37 +121,37 @@ public class GameManager : MonoBehaviour
 
     void StartListener()
     {
-        FirebaseDatabase.DefaultInstance.GetReference(UDID).
-            ValueChanged += (object sender, ValueChangedEventArgs e) =>
-            {
-                if (e.DatabaseError != null)
-                {
-                    Debug.LogError(e.DatabaseError.Message);
-                    return;
-                }
-                if (e.Snapshot != null && e.Snapshot.ChildrenCount > 0)
-                {
-                    foreach (var childSnapshot in e.Snapshot.Children)
-                    {
-                        //if (childSnapshot.Child("Food") == null
-                        //|| childSnapshot.Child("Food").Value == null)
-                        //{
-                        //    Debug.LogError("Bad data in sample.  Did you forget to call SetEditorDatabaseUrl with your project id?");
-                        //    break;
-                        //}
-                        //else
-                        //{
-                            Debug.Log("data : " +
-                                childSnapshot.Child("Food").Value.ToString() + " - " +
-                                childSnapshot.Child("Gold").Value.ToString() + " - " +
-                                childSnapshot.Child("Jewelry").Value.ToString());
-                            data.Insert(0, childSnapshot.Child("Food").Value.ToString()
-                                + " " + childSnapshot.Child("Gold").Value.ToString()
-                                + " " + childSnapshot.Child("Jewelry").Value.ToString());
-                        //}
-                    }
-                }
-            };
+        //FirebaseDatabase.DefaultInstance.GetReference(UDID).
+        //    ValueChanged += (object sender, ValueChangedEventArgs e) =>
+        //    {
+        //        if (e.DatabaseError != null)
+        //        {
+        //            Debug.LogError(e.DatabaseError.Message);
+        //            return;
+        //        }
+        //        if (e.Snapshot != null && e.Snapshot.ChildrenCount > 0)
+        //        {
+        //            foreach (var childSnapshot in e.Snapshot.Children)
+        //            {
+        //                //if (childSnapshot.Child("Food") == null
+        //                //|| childSnapshot.Child("Food").Value == null)
+        //                //{
+        //                //    Debug.LogError("Bad data in sample.  Did you forget to call SetEditorDatabaseUrl with your project id?");
+        //                //    break;
+        //                //}
+        //                //else
+        //                //{
+        //                    Debug.Log("data : " +
+        //                        childSnapshot.Child("Food").Value.ToString() + " - " +
+        //                        childSnapshot.Child("Gold").Value.ToString() + " - " +
+        //                        childSnapshot.Child("Jewelry").Value.ToString());
+        //                    data.Insert(0, childSnapshot.Child("Food").Value.ToString()
+        //                        + " " + childSnapshot.Child("Gold").Value.ToString()
+        //                        + " " + childSnapshot.Child("Jewelry").Value.ToString());
+        //                //}
+        //            }
+        //        }
+        //    };
     }
 
     string food = "100";
