@@ -68,21 +68,120 @@ public class UpdateDB : MonoBehaviour
         });
     }
 
+    public void AddData2()
+    {
+        DatabaseReference reference = FirebaseDatabase.DefaultInstance.GetReference(GameManager.Instance.UDID);
+
+        reference.RunTransaction(AddDataTransaction2).ContinueWith(task =>
+        {
+            if (task.Exception != null)
+                Debug.Log(task.Exception.ToString());
+            else if (task.IsCompleted)
+                Debug.Log("Transaction complete.");
+        });
+    }
+
     TransactionResult AddDataTransaction(MutableData mutableData)
     {
         //List<object> datas = mutableData.Value as List<object>;
-        List<object> datas = new List<object>();
+        //Dictionary<string, object> newData = new Dictionary<string, object>();
+        //// List<object> datas = new List<object>();
 
         //if (datas == null)
         //    datas = new List<object>();
+        ////else if (datas[0] is Dictionary<string, object>)
+        ////    newData = (Dictionary<string, object>)datas[0];
+        //else
+        //    newData = (Dictionary<string, object>)datas[0];
 
-        Dictionary<string, object> newData = new Dictionary<string, object>();
-        newData["Food"] = foodCount;
-        newData["Gold"] = goldAmount;
-        newData["Jewelry"] = jewelryCount;
-        datas.Add(newData);
+        ////foreach (var data in newData)
+        ////    Debug.Log(data);
 
-        mutableData.Value = newData;
+        //// Dictionary<string, object> newData = new Dictionary<string, object>();
+        //newData["Food"] = foodCount;
+        //newData["Gold"] = goldAmount;
+        //newData["Jewelry"] = jewelryCount;
+        //// datas.Clear();
+        //datas.Add(newData);
+
+        //mutableData.Value = datas;
+        //return TransactionResult.Success(mutableData);
+
+        Dictionary<string, object> datas = mutableData.Value as Dictionary<string, object>;
+        if (datas == null) datas = new Dictionary<string, object>();
+
+        datas["Food"] = foodCount;
+        datas["Gold"] = goldAmount;
+        datas["Jewelry"] = jewelryCount;
+
+        mutableData.Value = datas;
+        return TransactionResult.Success(mutableData);
+    }
+
+    TransactionResult AddDataTransaction2(MutableData mutableData)
+    {
+        ////List<object> datas = mutableData.Value as List<object>;
+        //List<object> datas = new List<object>();
+
+        ////if (datas == null)
+        ////    datas = new List<object>();
+
+        //Dictionary<string, object> newData = new Dictionary<string, object>();
+        //newData["Test"] = "test";
+        //datas.Add(newData);
+
+        //mutableData.Value = newData;
+        //return TransactionResult.Success(mutableData);
+
+        //List<object> datas = mutableData.Value as List<object>;
+        //Dictionary<string, object> newData = new Dictionary<string, object>();
+        //// List<object> datas = new List<object>();
+
+        //if (datas == null)
+        //    datas = new List<object>();
+        //else if (datas[0] is Dictionary<string, object>)
+        //    newData = (Dictionary<string, object>)datas[0];
+
+        //// Dictionary<string, object> newData = new Dictionary<string, object>();
+        //newData["Test"] = "test";
+        //datas.Clear();
+        //datas.Add(newData);
+
+        //mutableData.Value = newData;
+        //return TransactionResult.Success(mutableData);
+
+        //List<object> datas = mutableData.Value as List<object>;
+        //Dictionary<string, object> newData = new Dictionary<string, object>();
+        //// List<object> datas = new List<object>();
+
+        //if (datas == null)
+        //    datas = new List<object>();
+        ////else if (datas[0] is Dictionary<string, object>)
+        ////    newData = (Dictionary<string, object>)datas[0];
+        //else
+        //{
+        //    Debug.Log(datas);
+        //    newData = datas[0] as Dictionary<string, object>;
+        //}
+
+        ////foreach (var data in newData)
+        ////    Debug.Log(data);
+
+        //// Dictionary<string, object> newData = new Dictionary<string, object>();
+        //newData["Test"] = "test";
+        //// datas.Clear();
+        //datas.Add(newData);
+
+        //mutableData.Value = datas;
+        //return TransactionResult.Success(mutableData);
+
+        Dictionary<string, object> datas = mutableData.Value as Dictionary<string, object>;
+        if (datas == null) datas = new Dictionary<string, object>();
+
+        datas["Gold"] = "good";
+        datas["Test"] = "test";
+
+        mutableData.Value = datas;
         return TransactionResult.Success(mutableData);
     }
 }
